@@ -15,18 +15,25 @@ class SingletonMeta(type):
         if cls not in cls._instances:
             instance = super().__call__(*args, **kwargs)
             cls._instances[cls] = instance
-        print(cls._instances)
         return cls._instances[cls]
 
 
 class Singleton(metaclass=SingletonMeta):
-    def some_business_logic(self):
-        """
-        Finally, any singleton should define some business logic, which can be
-        executed on its instance.
-        """
+    @staticmethod
+    def sum_(num1: int, num2: int) -> float:
+        return num1 + num2
 
-        # ...
+    @staticmethod
+    def multiply(num1: int, num2: int) -> float:
+        return num1 * num2
+
+    @staticmethod
+    def divide(num1: int, num2: int) -> float:
+        return num1 / num2
+
+    @staticmethod
+    def sub(num1: int, num2: int) -> float:
+        return num1 - num2
 
 
 if __name__ == "__main__":
